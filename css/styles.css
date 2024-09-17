@@ -1,0 +1,70 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  padding: 5px 0 0;
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
+}
+.center-table {
+  margin: 0 auto;
+  width: 80%; /* Adjust the width as needed */
+  max-height: 400px; /* Set the maximum height for the scrollable area */
+  overflow-y: scroll; /* Enable vertical scrolling */
+}
+
+.table-wrapper {
+  max-height: 400px; /* Set the maximum height for the scrollable area */
+  overflow-y: scroll; /* Enable vertical scrolling */
+}
+thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1; /* Ensure the header stays above table rows */
+}
+.custom-button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.sidebar-logo {
+  padding: 10px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.nav-link {
+  color: #333;
+}
+
+.card-header {
+  font-weight: bold;
+}
+
+.profile-img {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+}
+
+  .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      width: 200px;
+      z-index: 1;
+      right: 0%;
+  }
+
+  .dropdown:hover .dropdown-content {
+      display: block;
+  }
+
+  .notification {
+      padding: 12px 16px;
+      display: block;
+  }

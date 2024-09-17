@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Schedule</title>
+  <link href="vendor\css\bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css\styles.css">
+
+  <style>
+    body {
+      padding-bottom: 50px;
+      background-color: #f8f9fa;
+    }
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+
+    .logo img {
+      max-width: 100px;
+    }
+    .table-container {
+      margin-top: 20px;
+    }
+    .table-number {
+      text-align: center;
+      font-weight: bold;
+      margin-bottom: 10px;
+      font-size: 1.2em;
+      color: #007bff;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .btn-reset {
+      margin-top: 20px;
+    }
+    .table-wrapper {
+      border: 2px solid #007bff;
+      border-radius: 10px;
+      padding: 15px;
+      background-color: #f1f1f1;
+      margin-bottom: 20px;
+    }
+    table {
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body>
+ <!-- Top Navigation Bar -->
+ <nav class="navbar-expand-lg bg-light navbar navbar-dark bg-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+              <a class="nav-link" href="#" style="margin-left: 250px;">News</a>
+          </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+          <li class="nav-item profile-container">
+              <a href="#" class="nav-link">
+                  <img src="/images/1.jpg" alt="Student Profile" class="profile-img">
+              </a>
+          </li>
+          <li class="nav-item">
+              <!-- Notification dropdown -->
+              <div class="dropdown">
+                  <button class="custom-button" style="margin-top: 8px;">
+                      <img src="/images/bell.jpg" alt="Notifications" class="profile-img" title="Notifications">
+                  </button>
+                  <div class="dropdown-content">
+                      <a href="#" class="notification">Notification 1</a>
+                      <a href="#" class="notification">Notification 2</a>
+                      <a href="#" class="notification">Notification 3</a>
+                  </div>
+              </div>
+          </li>
+      </ul>
+  </div>
+</nav>
+
+<div>
+  <div class="row">
+      <!-- Sidebar -->
+      <nav class="col-md-2 d-none d-md-block bg-light sidebar ">
+          <div>
+              <div class="sidebar-logo text-center">
+                  <img src="/images/logo.png" alt="Logo" height="150px" width="150px">
+              </div>
+              <ul class="nav flex-column mt-3">
+                  <li class="nav-item">
+                      <a class="nav-link active" href="home_page.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/Schedule.html">Schedule</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/results.html">Results</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/gpacalc.html">GPA Calculator</a>
+                </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/viewstudents.html">View Students</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/change_grades.html">Change Grade</a>
+                   </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/add&del.html">Manage Students</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/ML">ML Model</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/log.html">Log</a>
+                  </li>
+              </ul>
+          </div>
+      </nav>
+<div class="container">
+  <div class="logo">
+    <img src="/images/logo.png" alt="Logo"> 
+  </div>
+  <h1 class="text-center">Schedule</h1>
+  <div class="form-group">
+    <label for="collegeSelect">Choose Your College: </label>
+    <select id="collegeSelect" class="form-control">
+      <option value="">choose</option>
+      <option value="1">College 1</option>
+      <option value="2">College 2</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="termSelect">Choose Your Term (1-8): </label>
+    <select id="termSelect" class="form-control" disabled>
+      <option value="">select</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+    </select>
+  </div>
+
+  <button id="resetButton" class="btn btn-danger btn-reset">Reset</button>
+
+  <div class="table-container">
+    <div id="table1" class="table-wrapper" style="display: none;"></div>
+    <div id="table2" class="table-wrapper" style="display: none;"></div>
+    <div id="table3" class="table-wrapper" style="display: none;"></div>
+    <div id="table4" class="table-wrapper" style="display: none;"></div>
+    <div id="table5" class="table-wrapper" style="display: none;"></div>
+    <div id="table6" class="table-wrapper" style="display: none;"></div>
+    <div id="table7" class="table-wrapper" style="display: none;"></div>
+    <div id="table8" class="table-wrapper" style="display: none;"></div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+  $(document).ready(function() {
+    var collegeTermTables = {
+      1: {
+        1: 'College 1 Term 1 Table',
+        2: 'College 1 Term 2 Table',
+        3: 'College 1 Term 3 Table',
+        4: 'College 1 Term 4 Table',
+        5: 'College 1 Term 5 Table',
+        6: 'College 1 Term 6 Table',
+        7: 'College 1 Term 7 Table',
+        8: 'College 1 Term 8 Table'
+      },
+      2: {
+        1: 'College 2 Term 1 Table',
+        2: 'College 2 Term 2 Table',
+        3: 'College 2 Term 3 Table',
+        4: 'College 2 Term 4 Table',
+        5: 'College 2 Term 5 Table',
+        6: 'College 2 Term 6 Table',
+        7: 'College 2 Term 7 Table',
+        8: 'College 2 Term 8 Table'
+      }
+    };
+
+    $('#collegeSelect').on('change', function() {
+      var college = $(this).val();
+      if (college) {
+        $('#termSelect').prop('disabled', false);
+      } else {
+        $('#termSelect').prop('disabled', true).val('');
+        $('.table-wrapper').hide();
+      }
+    });
+
+    $('#termSelect').on('change', function() {
+      var term = $(this).val();
+      var college = $('#collegeSelect').val();
+      $('.table-wrapper').hide();
+      if (college && term) {
+        $('#table' + term).show();
+        createTable(college, term);
+      }
+    });
+
+    $('#resetButton').click(function() {
+      $('.table-wrapper').hide();
+      $('#collegeSelect').val('');
+      $('#termSelect').val('').prop('disabled', true);
+    });
+
+    function createTable(college, term) {
+      var tableData = collegeTermTables[college][term];
+      var table = $('<table class="table table-striped">');
+      var days = ['Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday'];
+      var topics = ['Topic 1', 'Topic 2', 'Topic 3'];
+      var tableHeader = $('<thead><tr><th>Day</th></tr></thead>');
+      for (var j = 0; j < topics.length; j++) {
+        tableHeader.find('tr').append('<th>' + topics[j] + '</th>');
+      }
+      table.append(tableHeader);
+      var tableBody = $('<tbody>');
+      for (var k = 0; k < days.length; k++) {
+        var row = $('<tr>');
+        row.append('<td>' + days[k] + '</td>');
+        for (var l = 0; l < topics.length; l++) {
+          row.append('<td>' + tableData + ' Subject ' + (l + 1) + '</td>');
+        }
+        tableBody.append(row);
+      }
+      table.append(tableBody);
+      $('#table' + term).empty().append('<div class="table-number">Term ' + term + ' (' + tableData + ')</div>', table);
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Student Grades</title>
+  <link href="vendor/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    body {
+      padding-bottom: 10px;
+      background-color: #f8f9fa;
+    }
+    .container {
+      padding-top: 10px;
+      max-width: 700px;
+      margin: auto;
+      background-color: #fff;
+      padding: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+    .logo {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .logo img {
+      max-width: 100px;
+    }
+    .table-container {
+      margin-top: 5px;
+    }
+    .table-number {
+      text-align: center;
+      font-weight: bold;
+      margin-bottom: 10px;
+      font-size: 1.2em;
+      color: #007bff;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .btn-reset {
+      margin-top: 20px;
+    }
+
+    .table-wrapper {
+      border: 2px solid #007bff;
+      border-radius: 10px;
+      padding: 15px;
+      background-color: #f1f1f1;
+      margin-bottom: 20px;
+      max-height: 300px;
+      overflow-y: auto;
+      position: relative;
+    }
+    table {
+      margin-bottom: 0;
+      width: 100%;
+    }
+    thead th {
+      position: sticky;
+      top: 0;
+      background-color: #fff;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+   <!-- Top Navigation Bar -->
+   <nav class="navbar-expand-lg bg-light navbar navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#" style="margin-left: 250px;">News</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item profile-container">
+                <a href="#" class="nav-link">
+                    <img src="/images/1.jpg" alt="Student Profile" class="profile-img">
+                </a>
+            </li>
+            <li class="nav-item">
+                <!-- Notification dropdown -->
+                <div class="dropdown">
+                    <button class="custom-button" style="margin-top: 8px;">
+                        <img src="/images/bell.jpg" alt="Notifications" class="profile-img" title="Notifications">
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="#" class="notification">Notification 1</a>
+                        <a href="#" class="notification">Notification 2</a>
+                        <a href="#" class="notification">Notification 3</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div>
+    <div class="row">
+        <!-- Sidebar -->
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar ">
+            <div>
+                <div class="sidebar-logo text-center">
+                    <img src="/images/logo.png" alt="Logo" height="150px" width="150px">
+                </div>
+                <ul class="nav flex-column mt-3">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="home_page.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Schedule.html">Schedule</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/results.html">Results</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/gpacalc.html">GPA Calculator</a>
+                  </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/viewstudents.html">View Students</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/change_grades.html">Change Grade</a>
+                       </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/add&del.html">Manage Students</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/ML">ML Model</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/log.html">Log</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+<div class="container">
+  <div class="logo">
+    <!-- <img src="../used_image/AAST_logo.png" alt="Logo">  -->
+  </div>
+  <h1 class="text-center">Change Grades</h1>
+
+  <!-- Removed college selection dropdown -->
+  <input type="hidden" id="collegeSelect" value="1">
+  <div class="form-group">
+    <label for="termSelect">Student's Term (1-8): </label>
+    <select id="termSelect" class="form-control">
+      <option value="">Select</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="filterInput">Filter by Student ID:</label>
+    <input type="text" class="form-control" id="filterInput" placeholder="Enter Student ID">
+  </div>
+
+  <button id="resetButton" class="btn btn-danger btn-reset">Reset</button>
+
+  <div class="table-container">
+    <div id="table1" class="table-wrapper" style="display: none;"></div>
+    <div id="table2" class="table-wrapper" style="display: none;"></div>
+    <div id="table3" class="table-wrapper" style="display: none;"></div>
+    <div id="table4" class="table-wrapper" style="display: none;"></div>
+    <div id="table5" class="table-wrapper" style="display: none;"></div>
+    <div id="table6" class="table-wrapper" style="display: none;"></div>
+    <div id="table7" class="table-wrapper" style="display: none;"></div>
+    <div id="table8" class="table-wrapper" style="display: none;"></div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var termSelect = document.getElementById('termSelect');
+    var resetButton = document.getElementById('resetButton');
+    var filterInput = document.getElementById('filterInput');
+
+    termSelect.addEventListener('change', function() {
+      var term = this.value;
+      hideTableWrappers();
+      if (term) {
+        showTableWrapper(term);
+        fetchTableData(term);
+      }
+    });
+
+    filterInput.addEventListener('input', function() {
+      var filterValue = this.value.toLowerCase();
+      var rows = document.querySelectorAll('tbody tr');
+      rows.forEach(function(row) {
+        var idCell = row.querySelector('td:first-child');
+        if (idCell.textContent.toLowerCase().indexOf(filterValue) > -1) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    });
+
+    resetButton.addEventListener('click', function() {
+      resetForm();
+    });
+
+    function hideTableWrappers() {
+      var tableWrappers = document.querySelectorAll('.table-wrapper');
+      tableWrappers.forEach(function(wrapper) {
+        wrapper.style.display = 'none';
+      });
+    }
+
+    function showTableWrapper(term) {
+      var tableWrapper = document.getElementById('table' + term);
+      if (tableWrapper) {
+        tableWrapper.style.display = 'block';
+      }
+    }
+
+    function resetForm() {
+      hideTableWrappers();
+      termSelect.value = '';
+      filterInput.value = ''; // Reset filter input
+      var rows = document.querySelectorAll('tbody tr');
+      rows.forEach(function(row) {
+        row.style.display = ''; // Reset table rows display
+      });
+    }
+
+    function fetchTableData(term) {
+      fetch('/student_courses')
+        .then(response => response.json())
+        .then(data => {
+          populateTable(term, data);
+        })
+        .catch(error => {
+          console.error('Error fetching table data:', error);
+        });
+    }
+
+    function populateTable(term, data) {
+      var tableWrapper = document.getElementById('table' + term);
+      if (tableWrapper) {
+        var table = document.createElement('table');
+        table.className = 'table table-striped';
+        var tableHeader = document.createElement('thead');
+        tableHeader.innerHTML = '<tr><th>Student ID</th><th>Course</th><th>7th Exam</th><th>12th Exam</th><th>Classwork</th><th>Final Exam</th><th>Grade</th><th>Action</th></tr>';
+        table.appendChild(tableHeader);
+        var tableBody = document.createElement('tbody');
+        data.forEach(item => {
+          var row = document.createElement('tr');
+          row.innerHTML = '<td>' + item.student_id + '</td>' +
+                          '<td>' + item.course + '</td>' +
+                          '<td id="seventh_' + item.student_id + '_' + item.course + '">' + item.exam_7th + '</td>' +
+                          '<td id="twelfth_' + item.student_id + '_' + item.course + '">' + item.exam_12th + '</td>' +
+                          '<td id="classwork_' + item.student_id + '_' + item.course + '">' + item.classwork + '</td>' +
+                          '<td id="final_' + item.student_id + '_' + item.course + '">' + item.final_exam + '</td>' +
+                          '<td id="grade_' + item.student_id + '_' + item.course + '">' + item.grade + '</td>' +
+                          '<td><button class="btn btn-primary" onclick="changeGrade(' + item.student_id + ', \'' + item.course + '\')">Change</button></td>';
+          tableBody.appendChild(row);
+        });
+        table.appendChild(tableBody);
+        var tableNumber = '<div class="table-number">Term ' + term + '</div>';
+        tableWrapper.innerHTML = tableNumber;
+        tableWrapper.appendChild(table);
+      }
+    }
+
+    function calculateGrade(seventh, twelfth, classwork, final) {
+      var total = seventh + twelfth + classwork + final;
+      if (total >= 90) return 'A';
+      else if (total >= 80) return 'B';
+      else if (total >= 70) return 'C';
+      else if (total >= 60) return 'D';
+      else return 'F';
+    }
+
+    window.changeGrade = function(studentId, course) {
+      var newSeventh = parseFloat(prompt('Enter new 7th exam grade:'));
+      while(newSeventh > 30){
+        newSeventh = parseFloat(prompt('Enter new 7th exam grade again:'));
+      }
+      var newTwelfth = parseFloat(prompt('Enter new 12th exam grade:'));
+      while(newTwelfth > 20){
+        newTwelfth = parseFloat(prompt('Enter new 12th exam grade again:'));
+      }
+      var newClasswork = parseFloat(prompt('Enter new classwork grade:'));
+      while(newClasswork > 10){
+        newClasswork = parseFloat(prompt('Enter new classwork grade again:'));
+      }
+      var newFinal = parseFloat(prompt('Enter new final exam grade:'));
+      while(newFinal > 40){
+        newFinal = parseFloat(prompt('Enter new final exam grade:'));
+      }
+      if (!isNaN(newSeventh) && !isNaN(newTwelfth) && !isNaN(newClasswork) && !isNaN(newFinal)) {
+        var newGrade = calculateGrade(newSeventh, newTwelfth, newClasswork, newFinal);
+        var seventhCell = document.getElementById('seventh_' + studentId + '_' + course);
+        var twelfthCell = document.getElementById('twelfth_' + studentId + '_' + course);
+        var classworkCell = document.getElementById('classwork_' + studentId + '_' + course);
+        var finalCell = document.getElementById('final_' + studentId + '_' + course);
+        var gradeCell = document.getElementById('grade_' + studentId + '_' + course);
+
+        if (seventhCell && twelfthCell && classworkCell && finalCell && gradeCell) {
+          seventhCell.textContent = newSeventh;
+          twelfthCell.textContent = newTwelfth;
+          classworkCell.textContent = newClasswork;
+          finalCell.textContent = newFinal;
+          gradeCell.textContent = newGrade;
+
+          // Update the database
+          fetch('/update_grade', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              studentId: studentId,
+              course: course,
+              exam_7th: newSeventh,
+              exam_12th: newTwelfth,
+              classwork: newClasswork,
+              final_exam: newFinal,
+              grade: newGrade
+            })
+          })
+          .then(response => response.json())
+          .then(data => {
+            if (data.success) {
+              alert('Grade updated successfully');
+            } else {
+              alert('Error updating grade');
+            }
+          })
+          .catch(error => {
+            console.error('Error updating grade:', error);
+            alert('Error updating grade');
+          });
+        }
+      } else {
+        alert('Please enter valid grades!');
+      }
+    };
+  });
+</script>
+
+</body>
+</html>

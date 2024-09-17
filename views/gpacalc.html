@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal</title>
+    <link href="vendor/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .profile-img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+        .profile-container {
+            display: flex;
+            align-items: center;
+        }
+        .sidebar {
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .text-center {
+            margin-bottom: 20px;
+        }
+        .btn-link img {
+            width: 20px;
+            height: 20px;
+        }
+        .btn-primary {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+ <!-- Top Navigation Bar -->
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#" style="margin-left: 250px;">News</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item profile-container">
+                <a href="#" class="nav-link">
+                    <img src="/images/1.jpg" alt="Student Profile" class="profile-img">
+                </a>
+            </li>
+            <li class="nav-item">
+                <!-- Notification dropdown -->
+                <div class="dropdown">
+                    <button class="btn btn-link" style="margin-top: 8px;">
+                        <img src="/images/bell.jpg" alt="Notifications" class="profile-img" title="Notifications">
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">Notification 1</a>
+                        <a href="#" class="dropdown-item">Notification 2</a>
+                        <a href="#" class="dropdown-item">Notification 3</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Sidebar -->
+        <nav class="col-md-2 d-none d-md-block sidebar">
+            <div class="sidebar-sticky">
+                <div class="text-center">
+                    <img src="/images/logo.png" alt="Logo" class="img-fluid" width="150px" height="150px">
+                </div>
+                <ul class="nav flex-column mt-3">
+                    <li class="nav-item"><a class="nav-link active" href="home_page.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Schedule.html">Schedule</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/results.html">Results</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/gpacalc.html">GPA Calculator</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/viewstudents.html">View Students</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/change_grades.html">Change Grade</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/add&del.html">Manage Students</a></li>
+                    
+                    <li class="nav-item"><a class="nav-link" href="/ML.html">ML Model</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/log.html">Log</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Main content -->
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <div class="container">
+                <div class="row mb-3">
+                    <div class="col"><b>Course</b></div>
+                    <div class="col"><b>Grade</b></div>
+                    <div class="col"><b>Credit Hours</b></div>
+                </div>
+                <hr>
+                <div class="row mb-3">
+                    <div class="col"><b>Course 1</b></div>
+                    <div class="col">
+                        <select class="custom-select">
+                            <option selected>Grade</option>
+                            <option value="A+">A+</option>
+                            <option value="A">A</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B">B</option>
+                            <option value="B-">B-</option>
+                            <option value="C+">C+</option>
+                            <option value="C">C</option>
+                            <option value="C-">C-</option>
+                            <option value="D+">D+</option>
+                            <option value="D">D</option>
+                            <option value="D-">D-</option>
+                            <option value="F">F</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Credit Hours">
+                    </div>
+                </div>
+                <!-- Repeat for other courses -->
+                <div class="row mb-3">
+                    <div class="col"><b>Course 2</b></div>
+                    <div class="col">
+                        <select class="custom-select">
+                            <option selected>Grade</option>
+                            <option value="A+">A+</option>
+                            <option value="A">A</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B">B</option>
+                            <option value="B-">B-</option>
+                            <option value="C+">C+</option>
+                            <option value="C">C</option>
+                            <option value="C-">C-</option>
+                            <option value="D+">D+</option>
+                            <option value="D">D</option>
+                            <option value="D-">D-</option>
+                            <option value="F">F</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Credit Hours">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col"><b>Course 3</b></div>
+                    <div class="col">
+                        <select class="custom-select">
+                            <option selected>Grade</option>
+                            <option value="A+">A+</option>
+                            <option value="A">A</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B">B</option>
+                            <option value="B-">B-</option>
+                            <option value="C+">C+</option>
+                            <option value="C">C</option>
+                            <option value="C-">C-</option>
+                            <option value="D+">D+</option>
+                            <option value="D">D</option>
+                            <option value="D-">D-</option>
+                            <option value="F">F</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Credit Hours">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col"><b>Course 4</b></div>
+                    <div class="col">
+                        <select class="custom-select">
+                            <option selected>Grade</option>
+                            <option value="A+">A+</option>
+                            <option value="A">A</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B">B</option>
+                            <option value="B-">B-</option>
+                            <option value="C+">C+</option>
+                            <option value="C">C</option>
+                            <option value="C-">C-</option>
+                            <option value="D+">D+</option>
+                            <option value="D">D</option>
+                            <option value="D-">D-</option>
+                            <option value="F">F</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Credit Hours">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col"><b>Course 5</b></div>
+                    <div class="col">
+                        <select class="custom-select">
+                            <option selected>Grade</option>
+                            <option value="A+">A+</option>
+                            <option value="A">A</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B">B</option>
+                            <option value="B-">B-</option>
+                            <option value="C+">C+</option>
+                            <option value="C">C</option>
+                            <option value="C-">C-</option>
+                            <option value="D+">D+</option>
+                            <option value="D">D</option>
+                            <option value="D-">D-</option>
+                            <option value="F">F</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Credit Hours">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col"><b>Course 6</b></div>
+                    <div class="col">
+                        <select class="custom-select">
+                            <option selected>Grade</option>
+                            <option value="A+">A+</option>
+                            <option value="A">A</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B">B</option>
+                            <option value="B-">B-</option>
+                            <option value="C+">C+</option>
+                            <option value="C">C</option>
+                            <option value="C-">C-</option>
+                            <option value="D+">D+</option>
+                            <option value="D">D</option>
+                            <option value="D-">D-</option>
+                            <option value="F">F</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Credit Hours">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <button type="button" onclick="GpaCalc()" class="btn btn-primary">Calculate</button>
+                    </div>
+                    <div class="col">
+                        <p id="points"><b>Points:</b></p>
+                    </div>
+                    <div class="col">
+                        <p id="CREDITFINAL"><b>Credit Hours:</b></p>
+                    </div>
+                </div>
+                <hr>
+                <div class="col text-center">
+                    <p id="GPAFINAL"><b>GPA:</b></p>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<script src="vendor/js/jquery.min.js"></script>
+<script src="vendor/js/bootstrap.min.js"></script>
+<script src="js/scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+/* CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* to let the page take all view and the object didnt get hidden under any other object*/
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+/*enable the overflow in y axis by scrolling and enabling 3d means that z axis enabled*/ 
+body {
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: rgb(166, 205, 252);
+  transform-style: preserve-3d;
+  perspective: 1px;
+}
+/*dividing the page to two header and body to can apply Parallax effect*/
+.header_section, .body_section {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+}
+/*to make the parallax effect*/
+.header_section::before {
+  content: "";
+  height: 100%;
+  width: 102%;
+  position: absolute;
+  background: url('../images/elalamein-removebg-preview (1).png');
+  background-size: cover;
+  transform: translateZ(-1px) scale(2);
+}
+
+.header_section::after {
+  content: "";
+  height: 50%;
+  width: 50%;
+  position: absolute;
+  bottom: 149%;
+  right: 125%;
+  background: url('../images/AAST_logo.png');
+  background-size: contain;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  transform: translateZ(-2px) translateX(-50%);
+}
+
+.header_section .text {
+  top: 20%;
+  left: 55.5%;
+  position: absolute;
+  font-size: 4vw;
+  color: rgb(21, 25, 58);
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.645),
+              5px 5px 70px rgba(255, 255, 255, 0.5);
+  transform: translateZ(0) scale(1.5, 1.6) translate(-50%, 10%);
+}
+
+#logo_text {
+  bottom: 165%;
+  right: 137%;
+  font-weight: bold;
+  font-size: 4vw;
+  position: absolute;
+  color: rgb(34, 34, 83);
+  transform: translateZ(-2px);
+  white-space: pre;
+}
+
+.body_section {
+  background-color: rgb(15, 9, 43);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/*services section*/
+
+.card_row {
+  display: flex;
+  justify-content: space-around;
+  width: 75%;
+  margin-bottom: 20px;
+
+}
+
+.card {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.5);
+  transition: 0.3s;
+  width: 300px;
+  height: 380px;
+  background-color: rgb(23, 23, 48);
+  margin-top: 5rem;
+}
+/*when mouse get on the card*/
+.card:hover {
+  box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.5);
+}
+
+.container {
+  padding: 2px 16px;
+  height: 460px;
+  width: 100%;
+}
+
+.col1, .col2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+/* Nav Bar section*/
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #bbbbbb;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-around;
+}
+
+li {
+  display: inline;
+  margin-bottom: 10px;
+}
+
+li a {
+  display: inline;
+  color: rgb(12, 10, 48);
+  text-align: right;
+  padding: 14px 16px;
+  font-weight: bolder;
+}
+
+ul li a {
+  padding: 0;
+}
+
+.Logo_nav{
+  width: 50px; 
+  height: 50px; 
+  margin-left:80px; 
+  margin-right: 10px;
+  margin-top: 5.6px;
+}
+
+.text_nav{
+  height:20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-right: 10px;
+  margin-left: 50px;
+}
+/*for removing under line and the color when <a></a> any thing*/
+a {
+  text-decoration: none;
+  color: inherit; 
+}
+/*to change the color of text on the card*/
+h1{
+  margin-top: 19px;
+  color:rgb(165, 165, 165)
+}
